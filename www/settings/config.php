@@ -9,8 +9,8 @@
 
 ##################### System #########################
 define("SYSNAME","Slackdog Grid");
-define("SYSURL","http://gallifrey.slackdog.com");
-define("SYSMAIL","trinity93@gmail.com");
+define("SYSURL","http://localhost");
+define("SYSMAIL","your@email.com");
 
 
 $userInventoryURI="http://localhost:8003/";
@@ -59,7 +59,7 @@ define("C_DB_NAME","wiredux");
 //Your Username from Database here:
 define("C_DB_USER","root");
 //Your Database Password here:
-define("C_DB_PASS","locknar93");
+define("C_DB_PASS","********");
 
 ################ Database Tables #########################
 define("C_ADMIN_TBL","admin");

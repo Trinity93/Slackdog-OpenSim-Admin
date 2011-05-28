@@ -17,7 +17,7 @@ else
 	$DB_HOST = 	   'localhost';
 	$DB_NAME = 	   'ossearch';
 	$DB_USER = 	   'root';
-	$DB_PASSWORD = 'locknar93';
+	$DB_PASSWORD = '*****';
 
 	$GLOBALS['xmlrpc_internalencoding'] = 'UTF-8';
 

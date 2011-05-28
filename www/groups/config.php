@@ -3,7 +3,7 @@
     $dbHost = "localhost";
     $dbPort = 3306;
     $dbUser = "root";
-    $dbPassword	="locknar93";
+    $dbPassword	="*****";
 	
     // Set to 0 for no debugging, 1 for essential debugging, 2 for more information.
     $debugXMLRPC = 0;
