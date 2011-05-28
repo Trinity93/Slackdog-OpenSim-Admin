@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/opensimwi/!svn/ver/84/trunk/app/management
+END
+region-generate.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/opensimwi/!svn/ver/84/trunk/app/management/region-generate.php
+END
+uuid.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/opensimwi/!svn/ver/84/trunk/app/management/uuid.inc.php
+END
+region-services.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/opensimwi/!svn/ver/84/trunk/app/management/region-services.php
+END
+regiontools.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/opensimwi/!svn/ver/84/trunk/app/management/regiontools.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/opensimwi/!svn/ver/84/trunk/app/management/index.php
+END
+region-overview.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/opensimwi/!svn/ver/84/trunk/app/management/region-overview.php
+END

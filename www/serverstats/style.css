@@ -1,0 +1,76 @@
+/**
+ * $Id$
+ *
+ * Author: David Danier, david.danier@team23.de
+ * Project: Serverstats, http://serverstats.berlios.de/
+ * License: GPL v2 or later (http://www.gnu.org/licenses/gpl.html)
+ *
+ * Copyright (C) 2005 David Danier
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+body {
+	font-family: verdana, arial, sans-serif;
+	padding: 10px;
+	margin: 0px;
+}
+
+img {
+	border: 0px none;
+}
+
+a {
+	color: #000000;
+}
+
+#menu {
+	border-bottom: 2px dotted #AAAAAA;
+	padding: 10px;
+	background-color: #FFFFFF;
+}
+
+html > body #menu {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	border-left: 2px dotted #AAAAAA;
+	max-width: 400px;
+}
+
+#menu ul, #menu li {
+	padding: 0px;
+	margin: 0px;
+}
+
+#menu ul {
+	list-style: none;
+}
+
+#menu li {
+	display: inline;
+	padding-right: 10px;
+	white-space: nowrap;
+}
+
+#menu .treeitem {
+	padding-left: 10px;
+}
+
+html > body #menu li {
+	display: block;
+	padding-right: 0px;
+}
+
