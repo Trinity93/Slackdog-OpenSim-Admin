@@ -1,10 +1,28 @@
 -- phpMyAdmin SQL Dump
--- version 3.1.5
+-- version 3.3.10deb1
 -- http://www.phpmyadmin.net
 --
+-- Host: localhost
+-- Generation Time: May 27, 2011 at 09:39 PM
+-- Server version: 5.1.54
+-- PHP Version: 5.3.5-1ubuntu7.2
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `wiredux`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
@@ -14,9 +32,18 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+--
+-- Dumping data for table `admin`
+--
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', '84e78b596fa8e391c49f3c4df7b9c57f');
+(1, 'admin', 'f0d998cf0c9cae229a7e0bc1a5aa7ae0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminsetting`
+--
 
 CREATE TABLE IF NOT EXISTS `adminsetting` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -30,14 +57,35 @@ CREATE TABLE IF NOT EXISTS `adminsetting` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+--
+-- Dumping data for table `adminsetting`
+--
+
 INSERT INTO `adminsetting` (`id`, `startregion`, `userdir`, `griddir`, `assetdir`, `lastnames`, `adress`, `region`) VALUES
-(1, '', '', '', '', '0', '0', '1');
+(1, '4915916489252352', 'D:\\opensim\\', 'D:\\opensim\\', 'D:\\opensim\\', '1', '1', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banned`
+--
 
 CREATE TABLE IF NOT EXISTS `banned` (
   `UUID` varchar(36) NOT NULL,
   `agentIP` varchar(255) NOT NULL,
   `time` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `banned`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `codetable`
+--
 
 CREATE TABLE IF NOT EXISTS `codetable` (
   `UUID` varchar(36) NOT NULL,
@@ -47,9 +95,24 @@ CREATE TABLE IF NOT EXISTS `codetable` (
   `time` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `codetable`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country`
+--
+
 CREATE TABLE IF NOT EXISTS `country` (
   `name` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `country`
+--
 
 INSERT INTO `country` (`name`) VALUES
 ('Albania'),
@@ -248,14 +311,30 @@ INSERT INTO `country` (`name`) VALUES
 ('Solomon Islands'),
 ('French Guiana');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `economy_money`
+--
+
 CREATE TABLE IF NOT EXISTS `economy_money` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `CentsPerMoneyUnit` float NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+--
+-- Dumping data for table `economy_money`
+--
+
 INSERT INTO `economy_money` (`id`, `CentsPerMoneyUnit`) VALUES
 (1, 0.415);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `economy_transactions`
+--
 
 CREATE TABLE IF NOT EXISTS `economy_transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -271,13 +350,28 @@ CREATE TABLE IF NOT EXISTS `economy_transactions` (
   `RegionGenerated` varchar(36) NOT NULL,
   `IPGenerated` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `economy_transactions`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lastnames`
+--
 
 CREATE TABLE IF NOT EXISTS `lastnames` (
   `name` varchar(255) NOT NULL,
   `active` varchar(255) NOT NULL DEFAULT '1',
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lastnames`
+--
 
 INSERT INTO `lastnames` (`name`, `active`) VALUES
 ('Allen', '1'),
@@ -323,11 +417,33 @@ INSERT INTO `lastnames` (`name`, `active`) VALUES
 ('Tickle', '1'),
 ('Young', '1');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `offline_msgs`
+--
+
 CREATE TABLE IF NOT EXISTS `offline_msgs` (
   `uuid` varchar(36) NOT NULL,
   `message` text NOT NULL,
   KEY `uuid` (`uuid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `offline_msgs`
+--
+
+INSERT INTO `offline_msgs` (`uuid`, `message`) VALUES
+('f7a9d10c-4620-4b91-adca-ae584eae9bf6', '<GridInstantMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><fromAgentID>00000000-0000-0000-0000-000000000000</fromAgentID><fromAgentName>Server</fromAgentName><toAgentID>f7a9d10c-4620-4b91-adca-ae584eae9bf6</toAgentID><dialog>19</dialog><fromGroup>false</fromGroup><message>Your object Testing zero sized object bug was returned from &lt;132.7117, 122.8007, 21.33398&gt; in region Sandbox 1 due to parcel autoreturn</message><imSessionID>a3ac719e-2bf7-4770-a05b-819eb0431dca</imSessionID><offline>1</offline><Position><X>0</X><Y>0</Y><Z>0</Z></Position><binaryBucket /><ParentEstateID>1</ParentEstateID><RegionID>a475661f-18e7-4435-b9f6-5409123ac33b</RegionID><timestamp>1306065871</timestamp></GridInstantMessage>'),
+('f7a9d10c-4620-4b91-adca-ae584eae9bf6', '<GridInstantMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><fromAgentID>00000000-0000-0000-0000-000000000000</fromAgentID><fromAgentName>Server</fromAgentName><toAgentID>f7a9d10c-4620-4b91-adca-ae584eae9bf6</toAgentID><dialog>19</dialog><fromGroup>false</fromGroup><message>Your object Testing zero sized object bug was returned from &lt;132.7117, 122.8007, 21.33398&gt; in region Sandbox 1 due to parcel autoreturn</message><imSessionID>726d2a39-9682-421b-ad94-0efae3448b34</imSessionID><offline>1</offline><Position><X>0</X><Y>0</Y><Z>0</Z></Position><binaryBucket /><ParentEstateID>1</ParentEstateID><RegionID>a475661f-18e7-4435-b9f6-5409123ac33b</RegionID><timestamp>1306126772</timestamp></GridInstantMessage>'),
+('f7a9d10c-4620-4b91-adca-ae584eae9bf6', '<GridInstantMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><fromAgentID>00000000-0000-0000-0000-000000000000</fromAgentID><fromAgentName>Server</fromAgentName><toAgentID>f7a9d10c-4620-4b91-adca-ae584eae9bf6</toAgentID><dialog>19</dialog><fromGroup>false</fromGroup><message>Your object Testing zero sized object bug was returned from &lt;132.7117, 122.8007, 21.33398&gt; in region Sandbox 1 due to parcel autoreturn</message><imSessionID>ecf0bab5-7172-4102-924c-671ad7c3dbf7</imSessionID><offline>1</offline><Position><X>0</X><Y>0</Y><Z>0</Z></Position><binaryBucket /><ParentEstateID>1</ParentEstateID><RegionID>a475661f-18e7-4435-b9f6-5409123ac33b</RegionID><timestamp>1306388214</timestamp></GridInstantMessage>'),
+('f7a9d10c-4620-4b91-adca-ae584eae9bf6', '<GridInstantMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><fromAgentID>00000000-0000-0000-0000-000000000000</fromAgentID><fromAgentName>Server</fromAgentName><toAgentID>f7a9d10c-4620-4b91-adca-ae584eae9bf6</toAgentID><dialog>19</dialog><fromGroup>false</fromGroup><message>Your object Testing zero sized object bug was returned from &lt;132.7117, 122.8007, 21.33398&gt; in region Sandbox 1 due to parcel autoreturn</message><imSessionID>698a3312-d886-4d7e-af99-736cd2f06fb3</imSessionID><offline>1</offline><Position><X>0</X><Y>0</Y><Z>0</Z></Position><binaryBucket /><ParentEstateID>1</ParentEstateID><RegionID>a475661f-18e7-4435-b9f6-5409123ac33b</RegionID><timestamp>1306417830</timestamp></GridInstantMessage>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pagemanager`
+--
 
 CREATE TABLE IF NOT EXISTS `pagemanager` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
@@ -341,20 +457,37 @@ CREATE TABLE IF NOT EXISTS `pagemanager` (
   `target` varchar(255) NOT NULL,
   `display` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+
+--
+-- Dumping data for table `pagemanager`
+--
 
 INSERT INTO `pagemanager` (`id`, `code`, `sitename`, `content`, `rank`, `type`, `active`, `url`, `target`, `display`) VALUES
-(1, '1211831857', 'Home', '<p>&nbsp;</p>\r\n<table height="100%" cellspacing="0" cellpadding="0" width="100%" border="0">\r\n    <tbody>\r\n        <tr>\r\n            <td valign="top" width="63%" height="204">\r\n            <table height="195" cellspacing="0" cellpadding="5" width="90%" align="center" bgcolor="#ffffff" border="0">\r\n                <tbody>\r\n                    <tr>\r\n                        <td valign="top">\r\n                        <p><strong>Welcome to the new Opensimwi Redux !</strong><br />\r\n                        <br />\r\n                        Create an Free Account today and Play in our World.<br />\r\n                        Our World is created by its Residents, you can build everything in here.<br />\r\n                        Meet Peoples, Chat, Play, Everything is possible in our brandnew 3D World.</p>\r\n                        <p>Beside you see the Status of our System -&gt; <br />\r\n                        <br />\r\n                        Enjoy it. :-)</p>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n            </td>\r\n            <td valign="top" colspan="2">&nbsp;</td>\r\n        </tr>\r\n        <tr>\r\n            <td>&nbsp;</td>\r\n            <td width="33%">&nbsp;</td>\r\n            <td width="3%">&nbsp;</td>\r\n        </tr>\r\n    </tbody>\r\n</table>', '01', '1', '1', 'index.php?page=home', '_self', '2'),
-(2, '1211831897', 'Change Account', '', '05', '1', '1', 'index.php?page=change', '_self', '1'),
+(1, '1211831857', 'Home', '<p> </p>\r\n<table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%">\r\n    <tbody>\r\n        <tr>\r\n            <td width="63%" valign="top" height="204">\r\n            <table cellspacing="0" cellpadding="5" border="0" bgcolor="#ffffff" align="center" width="90%" height="195">\r\n                <tbody>\r\n                    <tr>\r\n                        <td valign="top">\r\n                        <p><strong>Welcome to Slackdog Grid !</strong><br />\r\n                        <br />\r\n                        <p>This site is currently under construction. Automated account creation is disabled on the website. Please Contact Trinity at trinity93@gmail.com for information on getting an account</p>\r\n                        <p>For now you can see the Status of our System -> <br />\r\n                        <br />\r\n                        Feel free to look around the site. :-)</p>\r\n <br />\r\n<p><strong>Now looking for donations !</strong><br />\r\nWe are currently looking for donations to help support and update the grid. Please contact Trinity at trinity93@gmail.com if you would like to make a donation.</p>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n            </td>\r\n            <td valign="top" colspan="2"> </td>\r\n        </tr>\r\n        <tr>\r\n            <td> </td>\r\n            <td width="33%"> </td>\r\n            <td width="3%"> </td>\r\n        </tr>\r\n    </tbody>\r\n</table>', '01', '1', '1', 'index.php?page=home', '_self', '0'),
+(28, '1262042911', 'Events', '', '05', '1', '1', 'index.php?page=events', '_self', '1'),
 (3, '1211831925', 'Gridstatus', '', '03', '1', '1', 'index.php?page=gridstatus', '_self', '0'),
-(4, '1211832121', 'Transaction History', '', '04', '1', '1', 'index.php?page=transactions', '_self', '1'),
-(5, '1213729504', 'Region List', '', '06', '1', '1', 'index.php?page=regions', '_self', '0'),
-(6, '1213811351', 'World Map', '', '07', '1', '1', 'index.php?page=map', '_self', '0'),
-(7, '1211832149', 'Create Account', '', '08', '1', '1', 'index.php?page=create', '_self', '0'),
-(8, '1211832173', 'Logout', '', '11', '1', '1', 'index.php?page=logout', '_self', '1'),
+(5, '1213729504', 'Region List', '', '26', '1', '1', 'index.php?page=regions', '_self', '0'),
+(6, '1213811351', 'World Map', '', '27', '1', '1', 'index.php?page=map', '_self', '0'),
+(7, '1211832149', 'Create Account', '', '28', '1', '0', 'index.php?page=createaccount', '_self', '0'),
+(8, '1211832173', 'Logout', '', '20', '1', '1', 'index.php?page=logout', '_self', '1'),
 (17, '1235761445', 'Who''s online', '', '04', '1', '1', 'index.php?page=online', '_self', '0'),
-(18, '1211831897', 'Additional Account tasks', '', '1', '2', '1', 'index.php?page=accounting', '_self', '1'),
-(21, '1239453230', 'Support', '', '05', '1', '1', 'index.php?page=support', '_self', '1');
+(18, '1262039238', 'Additional Account tasks', '', '3', '2', '1', 'index.php?page=extendedaccount', '_self', '1'),
+(25, '1262039238', 'Account', '', '04', '1', '1', '', '_self', '1'),
+(26, '1262039238', 'Transaction History', '', '2', '2', '1', 'index.php?page=transactions', '_self', '1'),
+(27, '1262039238', 'Change Password', '', '1', '2', '1', 'index.php?page=changepassword', '_self', '1'),
+(29, '1262043041', 'Land Manager', '', '07', '1', '1', 'index.php?page=land', '_self', '1'),
+(30, '1262043041', 'Group Land', '', '1', '2', '1', 'index.php?page=groupland', '_self', '1'),
+(31, '1262043041', 'My Regions', '', '2', '2', '1', 'index.php?page=myregions', '_self', '1'),
+(32, '1262043443', 'Shop', '', '06', '1', '1', 'index.php?page=shopping', '_self', '1'),
+(33, '1262043540', 'Search', '', '12', '1', '1', 'index.php?page=search', '_self', '2'),
+(34, '1304572878', 'About', '', '30', '1', '1', '', '_self', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `regions`
+--
 
 CREATE TABLE IF NOT EXISTS `regions` (
   `serverIP` varchar(64) NOT NULL,
@@ -367,6 +500,57 @@ CREATE TABLE IF NOT EXISTS `regions` (
   UNIQUE KEY `serverURI` (`serverIP`,`regionMapTexture`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `regions`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sitemanagement`
+--
+
+CREATE TABLE IF NOT EXISTS `sitemanagement` (
+  `pagecase` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `include` varchar(255) NOT NULL,
+  PRIMARY KEY (`pagecase`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sitemanagement`
+--
+
+INSERT INTO `sitemanagement` (`pagecase`, `type`, `include`) VALUES
+('activate', 'standard', 'activate.php'),
+('activatemail', 'standard', 'activatemail.php'),
+('change', 'account', 'changeacc.php'),
+('changepassword', 'account', 'changeacc.php'),
+('classifieds', 'classifieds', 'classifieds.php'),
+('createaccount', 'standard', 'createaccount.php'),
+('events', 'events', 'events.php'),
+('extendedaccount', 'account', 'extendedaccount.php'),
+('forgotpass', 'standard', 'forgotpw.php'),
+('gridstatus', 'news', 'gridnews.php'),
+('gridstatushistory', 'news', 'newshistory.php'),
+('home', 'standard', 'home.php'),
+('land', 'landmanager', 'land.php'),
+('logout', 'standard', 'logout.php'),
+('make-events', 'events', 'make-events.php'),
+('map', 'standard', 'map.php'),
+('online', 'standard', 'whosonline.php'),
+('pwreset', 'standard', 'pwreset.php'),
+('regions', 'standard', 'region_list.php'),
+('save-events', 'events', 'save-events.php'),
+('transactions', 'account', 'transactions.php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `startscreen_infowindow`
+--
+
 CREATE TABLE IF NOT EXISTS `startscreen_infowindow` (
   `gridstatus` varchar(255) NOT NULL,
   `active` varchar(30) NOT NULL,
@@ -375,8 +559,18 @@ CREATE TABLE IF NOT EXISTS `startscreen_infowindow` (
   `message` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `startscreen_infowindow`
+--
+
 INSERT INTO `startscreen_infowindow` (`gridstatus`, `active`, `color`, `title`, `message`) VALUES
-('1', '1', 'yellow', 'Info system Works very well ;-)', 'Today we''ve built a new loginscreen info system and it works very well. You can now see Info windows on the startup screen.');
+('1', '1', 'white', 'Account Creation Info', 'Please go to http://gallifrey.slackdog.com:9000/wifi to create a new account.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `startscreen_news`
+--
 
 CREATE TABLE IF NOT EXISTS `startscreen_news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -386,8 +580,18 @@ CREATE TABLE IF NOT EXISTS `startscreen_news` (
   KEY `id` (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+--
+-- Dumping data for table `startscreen_news`
+--
+
 INSERT INTO `startscreen_news` (`id`, `title`, `message`, `time`) VALUES
-(1, 'New version installed', 'We have succesfully installed the latest version of OpenSim', 1255536787);
+(2, 'New system being worked on', 'Developement and Testing of new Web Services is under way', 1255536787);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statistics`
+--
 
 CREATE TABLE IF NOT EXISTS `statistics` (
   `serverIP` varchar(64) NOT NULL,
@@ -408,6 +612,17 @@ CREATE TABLE IF NOT EXISTS `statistics` (
   UNIQUE KEY `serverIP` (`serverIP`,`serverPort`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `statistics`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
 CREATE TABLE IF NOT EXISTS `users` (
   `UUID` varchar(36) NOT NULL DEFAULT '',
   `username` varchar(32) NOT NULL,
@@ -426,3 +641,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`UUID`),
   UNIQUE KEY `usernames` (`username`,`lastname`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
