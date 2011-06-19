@@ -5,19 +5,19 @@
 //
 //
 
-if (!defined('ENV_HELPER_URL'))  define('ENV_HELPER_URL',  'http://webfront.infinitegrid.org/helper');
-if (!defined('ENV_HELPER_PATH')) define('ENV_HELPER_PATH', '/usr/local/share/slackdog/helper');
+if (!defined('ENV_HELPER_URL'))  define('ENV_HELPER_URL',  '');
+if (!defined('ENV_HELPER_PATH')) define('ENV_HELPER_PATH', '/path/to/helper/directory');
 
 //////////////////////////////////////////////////////////////////////////////////i
 // Valiables for OpenSim
 
 define('OPENSIM_DB_HOST',			'localhost');
-define('OPENSIM_DB_NAME',			'griddy');
-define('OPENSIM_DB_USER',			'griddy');
-define('OPENSIM_DB_PASS',			'iImW0cjm');
+define('OPENSIM_DB_NAME',			'opensim');
+define('OPENSIM_DB_USER',			'opensim');
+define('OPENSIM_DB_PASS',			'****');
 
-define('CURRENCY_SCRIPT_KEY',		'kuZaMV9Kc0GoX9BTTD8ircMSJCXB63N2');
-define('USER_SERVER_URI',			'http://grid.infinitegrid.org:8002');	// not use localhost or 127.0.0.1
+define('CURRENCY_SCRIPT_KEY',		'');
+define('USER_SERVER_URI',			'');	// not use localhost or 127.0.0.1
 
 
 //
