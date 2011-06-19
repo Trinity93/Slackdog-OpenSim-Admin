@@ -30,8 +30,10 @@ if($_POST[Submit]=="Login")
 		} elseif ($_SERVER["REMOTE_ADDR"]) { $userIP = $_SERVER["REMOTE_ADDR"];
 		} else { $userIP="This user has no ip";}
 		//GET IP ADRESS END
-
-        $passcheck = md5(md5($_POST[logpassword]) . ":" );
+	$DbLink = new DB;
+	$DbLink->query("SELECT passwordSalt FROM ".C_WIUSR_TBL." WHERE username='$_POST[logfirstname]' and lastname='$_POST[loglastname]'");
+	list($salt) = $DbLink->next_record();
+        $passcheck = md5(md5($_POST[logpassword]) . ":" . $salt);
         
         $DbLink = new DB;
 		$DbLink->query("SELECT UUID,agentIP,active FROM ".C_WIUSR_TBL." WHERE username='$_POST[logfirstname]' and lastname='$_POST[loglastname]' and passwordHash='$passcheck'");
