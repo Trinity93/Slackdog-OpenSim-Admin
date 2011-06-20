@@ -91,8 +91,10 @@ define("C_REGIONS_TBL","opensim.regions");
 define("C_APPEARANCE_TBL", "opensim.Avatars");
 
 //GROUPS DEFAULT TABLES (NEEDED FOR THE GROUP PARTS)
+//  The module can be configured to use it's own db, or opensim's.  
+//  But the table names need to be those below.
 define("G_MEMBERSHIP_TBL", "osgroups.osgroupmembership");
 define("G_MEMBERSHIP_ROLES_TBL", "osgroups.osgrouprolemembership");
 define("G_NAMES_TBL", "osgroups.osgroup");
-define("G_ROLES_TBL", "osgroups.osgrouprole");
+define("G_ROLES_TBL", "osgroups.osrole");
 ?>
