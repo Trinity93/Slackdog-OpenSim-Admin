@@ -11,6 +11,10 @@ session_start();
 
 include("../../includes/config.php");
 include("../../includes/mysql.php");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2952a03ca1793fb7d51695c020b0bf9ca4c658e0
 if($_GET[page] != ''){
 $_SESSION[page]=$_GET[page];
 }else{
