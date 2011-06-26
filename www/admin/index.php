@@ -9,9 +9,8 @@ session_start();
  *
 */
 
-include("../settings/config.php");
-include("../settings/mysql.php");
-
+include("../../includes/config.php");
+include("../../includes/mysql.php");
 if($_GET[page] != ''){
 $_SESSION[page]=$_GET[page];
 }else{
@@ -30,15 +29,12 @@ $ADMINCHECK = "454";
 if($_POST[adminlogin]=="admincheck"){
 $pass = $_POST[password];
 $passcheck = md5(md5($pass) . ":" );
-
 $DbLink->query("SELECT username,password FROM ".C_ADMIN_TBL." WHERE username='$_POST[username]'");
 list($adminname,$adminpass) = $DbLink->next_record();
-
 if($adminpass == $passcheck){
 $_SESSION[ADMINUID] = $adminpass;
 }
 }
-
 if($_POST[check]==1){
 echo "<script language=\"javascript\">
 <!--
@@ -46,7 +42,6 @@ window.location.href=\"index.php?page=home\";
 // -->
 </script>";
 }
-
 ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />

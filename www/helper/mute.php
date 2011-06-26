@@ -4,7 +4,7 @@
 //										by Fumi.Iseki (NSL)
 //
 
-require_once('../include/env_interface.php');
+require_once('../../includes/env_interface.php');
 
 
 //$request_xml = $HTTP_RAW_POST_DATA;

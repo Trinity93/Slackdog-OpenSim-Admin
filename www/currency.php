@@ -48,9 +48,9 @@
 #
 # These match opensimwiredux
 #
-include("settings/config.php");
-include("settings/mysql.php");
-require("helpers.php");
+include("../includes/config.php");
+include("../includes/mysql.php");
+require("../includes/helpers.php");
 
 ###################### No user serviceable parts below #####################
 

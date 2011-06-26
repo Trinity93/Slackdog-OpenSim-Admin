@@ -485,6 +485,21 @@ else if($_GET[aktion]=="ok")
 						mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ) );
 	
 			$DbLink->query("INSERT INTO ".C_CODES_TBL." (code,UUID,info,email,time)VALUES('$code','$UUID','confirm','$_SESSION[EMAIL]',".time().")");
+
+  $DbLink->query("INSERT INTO ".C_USERS_TBL." (PrincipalID,FirstName,LastName,created,)
+	VALUES
+('$UUID','".$_SESSION['ACCFIRST']."','".$_SESSION['ACCLAST'].','.time().")  ");
+
+	  $DbLink->query("INSERT INTO ".C_AGENTS_TBL." 	(UserID,HomeRegionID,HomePosition,HomeLookAt,LastRegionID,LastPosition,LastLookAt,Online,Login,Logout)
+	VALUES
+('$UUID','".$_SESSION['REGIONID']."','<128,128,128>,'<100,100,100>',".$_SESSION['REGIONID']."','<128,128,128>','<100,100,100>','0',".time());
+
+  $DbLink->query("INSERT INTO ".C_AUTH_TBL." (UUID,passwordHash,passwordSalt,webLoginKey,accountType)
+	VALUES
+('$UUID','0','$passwordSalt','00000000-0000-0000-0000-000000000000','UserAccount'");
+
+
+
 			$DbLink->query("INSERT INTO ".C_WIUSR_TBL." (UUID,username,lastname,passwordHash,passwordSalt,realname1,realname2,adress1,zip1,city1,country1,emailadress,agentIP,active)
 			VALUES
 			('$UUID','$_SESSION[ACCFIRST]','$_SESSION[ACCLAST]','0','$passwordHash','$_SESSION[NAMEF]','$_SESSION[NAMEL]','$_SESSION[ADRESS]','$_SESSION[ZIP]','$_SESSION[CITY]','$_SESSION[COUNTRY]','$_SESSION[EMAIL]','$userIP','confirm')  ");

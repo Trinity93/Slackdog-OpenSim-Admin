@@ -9,9 +9,9 @@ session_start();
  *
 */
 
-include("settings/config.php");
-include("settings/mysql.php");
-include("check.php"); 
+include("../includes/config.php");
+include("../includes/mysql.php");
+include("../includes/check.php"); 
  
 if($_GET[page] != '')
 {
