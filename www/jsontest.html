@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>JSON Test</title>
+<script src="http://gallifrey.slackdog.com/javascript/jquery-1.6.min.js";></script>
+<script src="http://gallifrey.slackdog.com/javascript/jquery.timers-1.2.js";></script>
+<script type="text/javascript" src="http://www.google.com/jsapi";></script>
+<script type="text/javascript" language="JavaScript">
+  SimFPS = 0;
+  PhyFPS = 0;
+  Memory = 0;
+  RootAg = 0;
+  ChldAg = 0;
+  Uptime = "";
+  Version = "";
+</script>
+
+
+<script type="text/javascript" language="JavaScript">
+
+
+  $.timer(15000, function(timer) {
+  $.getJSON("http://gallifrey.slackdog.com:9000/jsonSimStats/?callback=?";,
+
+  function(data){
+
+      SimFPS = Math.round(data.SimFPS);
+      PhyFPS = Math.round(data.PhyFPS);
+      Memory = Math.round(data.Memory);
+      ChldAg = data.ChldAg;
+      RootAg = data.RootAg;
+      Uptime = data.Uptime;
+      Version = data.Version;
+      drawChart();
+      setTags();
+      timer.reset(15000);
+  });
+  });
+</script>
+
+<script type="text/javascript" language="JavaScript">
+
+  google.load("visualization", "1", {packages:["gauge"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var cdata = new google.visualization.DataTable();
+    cdata.addColumn('string', 'Label');
+    cdata.addColumn('number', 'Value');
+    cdata.addRows(3);
+    cdata.setValue(0, 0, 'SimFPS');
+    cdata.setValue(0, 1, SimFPS);
+    cdata.setValue(1, 0, 'PhyFPS');
+    cdata.setValue(1, 1, PhyFPS);
+    cdata.setValue(2, 0, 'Memory');
+    cdata.setValue(2, 1, Memory);
+
+    var chart = new
+google.visualization.Gauge(document.getElementById('chart_div'));
+    var options = {width: 400, height: 120, redFrom: 90, redTo: 100,
+        yellowFrom:75, yellowTo: 90, minorTicks: 5};
+    chart.draw(cdata, options);
+  }
+</script>
+
+<script type="text/javascript" language="JavaScript">
+   function setTags() {
+      $("#par-uptime").text("Uptime: "  + Uptime);
+      $("#par-ragent").text("Root Agent: " + RootAg);
+      $("#par-version").text("Version: " + Version);
+      $("#par-cagent").text("Child Agent: " + ChldAg);
+   }
+</script>
+
+</head>
+<body>
+<h1>BlueWall Development Region</h1>
+<table>
+<tr><td>
+<div id="par-version">version</div>
+</td><td>
+<div id="par-ragent">root agent</div>
+</td></tr><tr><td>
+<div id="par-uptime">uptime</div>
+</td><td>
+<div id="par-cagent">child agent</div>
+</td></tr>
+</table>
+<div id="chart_div"></div>
+</body>
+</html>
