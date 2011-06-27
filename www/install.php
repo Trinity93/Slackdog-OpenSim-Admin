@@ -260,14 +260,13 @@ if($step == 1) {
 echo '</body></html>';
 
 function showError($msg) {
+	global $lang['install_error'];
 	$msg = "<font color=red>". $msg ."</font>";
-//	$fullmsg = str_replace("XXX", $msg, $lang['install_error']); //returns blank
-//	$fullmsg = str_replace("XXX", $msg, "Your XXX information is either missing or incorrect."); //works
-	$fullmsg = $lang['install_error']; //returns blank
+	$fullmsg = str_replace("XXX", $msg, $lang['install_error']);
 	echo '
 		<tr>
 			<td class=back>
-				<center><b>' . $fullmsg . '</b></center>ERROR
+				<center><b>' . $fullmsg . '</b></center>
 			</td>
 		</tr>';
 }
