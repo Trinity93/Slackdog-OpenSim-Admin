@@ -260,7 +260,7 @@ if($step == 1) {
 echo '</body></html>';
 
 function showError($msg) {
-	global $lang['install_error'];
+	global $lang;
 	$msg = "<font color=red>". $msg ."</font>";
 	$fullmsg = str_replace("XXX", $msg, $lang['install_error']);
 	echo '
