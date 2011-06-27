@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `adminsetting` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
-INSERT INTO `adminsetting` {
+INSERT INTO `adminsetting` (
 	`startregion`,`userdir`,`griddir`,`assetdir`,`lastnames`,`adress`,`region`)
 	VALUES
 	('0','.','.','.','0','1','0') ;
