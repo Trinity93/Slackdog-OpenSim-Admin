@@ -14,9 +14,9 @@
  *
  */
 $mysql_host = "localhost";		//mysql host (localhost if mysql is running on this machine)
-$mysql_user = "";			//mysql user name
-$mysql_pwd = "";				//mysql password
-$mysql_db = "";		//mysql database name
+$mysql_user = "webdev";			//mysql user name
+$mysql_pwd = "XSnsMvUNcFanmE27";				//mysql password
+$mysql_db = "webdev";		//mysql database name
 
 /********************	directory to put files associated with the tickets	********************************/
 // it is recommended that you choose the directory below your www directory, say: $filesdir = "../../files";
@@ -93,12 +93,12 @@ $session_save_db = "off";						// on/off to save session in mysql or tmp directo
  
 ##################### System #########################
 define("SYSNAME","Your Grid Name Here");
-define("SYSURL","http://localhost/");
+define("SYSURL","http://www.infinitegrid.org/webdev/");
 define("SYSMAIL","your@email.com");
 
 
-$userInventoryURI="http://localhost:8003/";
-$userAssetURI="http://localhost:8003/";
+$userInventoryURI="http://localhost:8503/";
+$userAssetURI="http://localhost:8503/";
 
 ############ Delete Unconfirmed accounts ################
 // e.g. 24 for 24 hours  leave empty for no timed delete
@@ -139,11 +139,11 @@ define("C_DB_TYPE","mysql");
 //Your Hostname here:
 define("C_DB_HOST","localhost");
 //Your Databasename here:
-define("C_DB_NAME","");
+define("C_DB_NAME","webdev");
 //Your Username from Database here:
-define("C_DB_USER","");
+define("C_DB_USER","webdev");
 //Your Database Password here:
-define("C_DB_PASS","");
+define("C_DB_PASS","XSnsMvUNcFanmE27");
 
 ################ Database Tables #########################
 define("C_ADMIN_TBL","admin");

@@ -243,21 +243,22 @@ function checkLastName(lname)
   </table>
 	    <?
 		$DbLink->query("SELECT confirm18 FROM ".C_ADM_TBL."");
-		list($CONFRIM18) = $DbLink->next_record();
+		list($CONFIRM18) = $DbLink->next_record();
 		
 		if($CONFIRM18=="1")
 		{ 
 	  ?>
-	  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+	  <table width="600" border="0" cellspacing="1" cellpadding="5" bgcolor="pink" align="center">
 	  <tr>
-	    <td align="center" colspan=2>You are required to be 18 years of age to connect to #############insert code for entered grid name during install.########################.  By checking the box below, you are confirming that you are at least 18 years of age.</td>
+	    <td align="center" colspan=2 border="1">You are required to be 18 years of age to connect to #CHANGEME PLEASE#.  By checking the box below, you are confirming that you are at least 18 years of age.</td>
 	  </tr>
 	  <tr>
-	    <td>Yes, I am at least 18 years of age.</td>
-	    <td><input name="comfirm18" type="checkbox" value="comfrim18" /></td>
+	    <td bgcolor="#FF0000" style="color:#FFFFFF">Yes, I am at least 18 years of age.</td>
+	    <td align="center"><input name="confirm18" type="checkbox" value="confirm18" /></td>
 	  </tr>
 	</table>
-	<? } ?>
+    </tr>
+	<? } else { echo "blah"; }?>
 
 </FORM>
 <? 
