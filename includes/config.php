@@ -92,13 +92,13 @@ $session_save_db = "off";						// on/off to save session in mysql or tmp directo
   */
  
 ##################### System #########################
-define("SYSNAME","Your Grid Name Here");
+define("SYSNAME","Infinite Grid");
 define("SYSURL","http://www.infinitegrid.org/webdev/");
-define("SYSMAIL","your@email.com");
+define("SYSMAIL","gridadmin@infinitegrid.org");
 
 
-$userInventoryURI="http://localhost:8503/";
-$userAssetURI="http://localhost:8503/";
+$userInventoryURI="http://www.infinitegrid.org:8503/";
+$userAssetURI="http://www.infinitegrid.org:8503/";
 
 ############ Delete Unconfirmed accounts ################
 // e.g. 24 for 24 hours  leave empty for no timed delete

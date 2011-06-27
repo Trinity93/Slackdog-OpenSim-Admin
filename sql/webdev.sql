@@ -19,13 +19,20 @@ CREATE TABLE IF NOT EXISTS `adminsetting` (
   `adress` varchar(32) NOT NULL,
   `region` text NOT NULL,
   `confirm18` varchar(32) NOT NULL,
+  `rlfirst` varchar(32) NOT NULL,
+  `rllast` varchar(32) NOT NULL,
+  `rladdress` varchar(32) NOT NULL,
+  `rlzip` varchar(32) NOT NULL,
+  `rlcity` varchar(32) NOT NULL,	
+  `rlcountry` varchar(32) NOT NULL,
+  `rldob` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 INSERT INTO `adminsetting` (
 	`startregion`,`userdir`,`griddir`,`assetdir`,`lastnames`,`adress`,`region`,`confirm18`)
 	VALUES
-	('0','.','.','.','0','1','0','1') ;
+	('0','.','.','.','0','1','0','1','0','0','0','0','0','0','0') ;
 
 CREATE TABLE IF NOT EXISTS `banned` (
   `UUID` varchar(36) NOT NULL,

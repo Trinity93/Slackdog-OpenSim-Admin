@@ -234,7 +234,7 @@ function checkLastName(lname)
                 </tr>
                 <tr>
                   <td bgcolor="#FFFFFF">&nbsp;</td>
-                  <td bgcolor="#FFFFFF"><div align="right">
+                  <td bgcolor="#FFFFFF"><div align="center">
 				    <INPUT type="hidden" name="action" value="check">
                     <INPUT name="submit" TYPE="submit" style="font-family:Verdana; font-size:11px; WIDTH:150; HEIGHT:19; BORDER: 1 solid #000000; COLOR: #000000; BACKGROUND-COLOR: cccccc" onFocus="this.style.backgroundColor='#006666'" onBlur="this.style.backgroundColor='#FFFFFF'" onMouseOver="this.style.backgroundColor='#CCCCCC'" onMouseout="this.style.backgroundColor='#FFFFFF'" value='Create new Account'>
                   </div></td>
