@@ -8,7 +8,7 @@ list($UUID) = $DbLink->next_record();
 }
 
 if($UUID){
-$WERROR="Thank you, your account is now active and ready to use.";
+$WERROR="Thank you, your account is now active and ready to use. To connect to ".SYSNAME." you must point your viewer to this Login URI: ".SYSURI."";
 
 $DbLink->query("SELECT passwordSalt FROM ".C_WIUSR_TBL." WHERE UUID='$UUID'");
 list($passwordHash) = $DbLink->next_record();

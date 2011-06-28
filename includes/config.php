@@ -95,7 +95,8 @@ $session_save_db = "off";						// on/off to save session in mysql or tmp directo
 define("SYSNAME","Infinite Grid");
 define("SYSURL","http://www.infinitegrid.org/webdev/");
 define("SYSMAIL","gridadmin@infinitegrid.org");
-
+// adding login URI to communicate to in various places
+define("SYSURI","http://grid.infinitegrid.org:8002/"
 
 $userInventoryURI="http://www.infinitegrid.org:8503/";
 $userAssetURI="http://www.infinitegrid.org:8503/";

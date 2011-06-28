@@ -233,8 +233,7 @@ function checkLastName(lname)
                     <td bgcolor="#CCCCCC"><input class="box" name="emaic" type="text" size="40" maxlength="40" ></td>
                 </tr>
                 <tr>
-                  <td bgcolor="#FFFFFF">&nbsp;</td>
-                  <td bgcolor="#FFFFFF"><div align="center">
+                  <td bgcolor="#FFFFFF" colspan="2"><div align="center">
 				    <INPUT type="hidden" name="action" value="check">
                     <INPUT name="submit" TYPE="submit" style="font-family:Verdana; font-size:11px; WIDTH:150; HEIGHT:19; BORDER: 1 solid #000000; COLOR: #000000; BACKGROUND-COLOR: cccccc" onFocus="this.style.backgroundColor='#006666'" onBlur="this.style.backgroundColor='#FFFFFF'" onMouseOver="this.style.backgroundColor='#CCCCCC'" onMouseout="this.style.backgroundColor='#FFFFFF'" value='Create new Account'>
                   </div></td>
@@ -243,22 +242,22 @@ function checkLastName(lname)
   </table>
 	    <?
 		$DbLink->query("SELECT confirm18 FROM ".C_ADM_TBL."");
-		list($CONFIRM18) = $DbLink->next_record();
+		list($_SESSION[CONFIRM18]) = $DbLink->next_record();
 		
-		if($CONFIRM18=="1")
+		if($_SESSION[CONFIRM18]=="1")
 		{ 
 	  ?>
 	  <table width="600" border="0" cellspacing="1" cellpadding="5" bgcolor="pink" align="center">
 	  <tr>
-	    <td align="center" colspan=2 border="1">You are required to be 18 years of age to connect to #CHANGEME PLEASE#.  By checking the box below, you are confirming that you are at least 18 years of age.</td>
+	    <td align="center" colspan=2 border="1">You are required to be 18 years of age to connect to <?=SYSNAME?>.  By checking the box below, you are confirming that you are at least 18 years of age.</td>
 	  </tr>
 	  <tr>
 	    <td bgcolor="#FF0000" style="color:#FFFFFF">Yes, I am at least 18 years of age.</td>
-	    <td align="center"><input name="confirm18" type="checkbox" value="confirm18" /></td>
+	    <td align="center"><input name="confirmage" type="checkbox" value="confirmage" /></td>
 	  </tr>
 	</table>
     </tr>
-	<? } else { echo "blah"; }?>
+	<? } ?>
 
 </FORM>
 <? 
@@ -299,6 +298,7 @@ else
 $_SESSION[EMAIL] = $_POST[email];
 $_SESSION[EMAIC] = $_POST[emaic];
 $_SESSION[PASSWD] = $_POST[wordpass];
+$_SESSION[CONFIRMAGE] = $_POST[confirmage];
 
 $tag= $_POST[tag];
 $monat= $_POST[monat];
@@ -313,7 +313,7 @@ $jahr2=$jahr2-18;
 $agecheck1=$tag+$monat+$jahr;
 $agecheck2=$tag2+$monat2+$jahr2;
 
-if(($_SESSION[PASSWD] == '')or($_SESSION[EMAIC] == '')or($_SESSION[EMAIL] == '')or($_SESSION[CITY] == '')or($_SESSION[ZIP] == '')or($_SESSION[ADRESS] == '')or($_SESSION[NAMEL] == '')or($_SESSION[NAMEF] == '')or($_SESSION[ACCFIRST] == '')or($_SESSION[ACCLAST] == ''))
+if(($_SESSION[PASSWD] == '')or($_SESSION[EMAIC] == '')or($_SESSION[EMAIL] == '')or($_SESSION[CITY] == '')or($_SESSION[ZIP] == '')or($_SESSION[ADRESS] == '')or($_SESSION[NAMEL] == '')or($_SESSION[NAMEF] == '')or($_SESSION[ACCFIRST] == '')or($_SESSION[ACCLAST] == '')or($_SESSION[CONFIRM18] == '1' && $_SESSION[CONFIRMAGE] == ''))
 {
 	if($_SESSION[EMAIC] == '') 
 	{
@@ -363,6 +363,10 @@ if(($_SESSION[PASSWD] == '')or($_SESSION[EMAIC] == '')or($_SESSION[EMAIL] == '')
 	if($_SESSION[ACCLAST] == "") 
 	{
 		$_SESSION[ERROR]="Please enter a last name for your account";
+	}
+	if($_SESSION[CONFIRM18] == '1' && $_SESSION[CONFIRMAGE] == '')
+	{
+		$_SESSION[ERROR]="You must confirm that you are over 18 years of age";
 	}
 
 	echo "<script language='javascript'>
@@ -511,7 +515,7 @@ $DbLink->query("INSERT INTO ".C_USERS_TBL." (PrincipalID,ScopeID,FirstName,LastN
 
           $DbLink->query("INSERT INTO ".C_AGENTS_TBL."  (UserID,HomeRegionID,HomePosition,HomeLookAt,LastRegionID,LastPosition,LastLookAt,Online,Login,Logout)
         VALUES
-('$UUID','".$_SESSION['REGIONID']."','<128,128,128>','<100,100,100>',".$_SESSION['REGIONID']."','<128,128,128>','<100,100,100>','false','0','0')");
+('$UUID','".$_SESSION['REGIONID']."','<128,128,128>','<100,100,100>','".$_SESSION['REGIONID']."','<128,128,128>','<100,100,100>','false','0','0')");
 
   $DbLink->query("INSERT INTO ".C_AUTH_TBL." (UUID,passwordHash,passwordSalt,webLoginKey,accountType)
         VALUES
@@ -539,7 +543,8 @@ $DbLink->query("INSERT INTO ".C_USERS_TBL." (PrincipalID,ScopeID,FirstName,LastN
 				 $body .= "".SYSURL."/index.php?page=activate&code=$code";
 				 $body .= "\n\n\n";
 				 $body .= "Thank you for using ".SYSNAME."";
-				 $header = 'From: OSGrid Webmaster <noreply@osgrid.org>' . "\r\n";
+				 $body .= "Login URI : ".SYSURI."";
+				 $header = "From: ".SYSNAME." Webmaster ".SYSMAIL."\r\n";
 				 $mail_status = mail($sendto, $subject, $body, $header);
 			//-----------------------------MAIL END --------------------------------------
 			}

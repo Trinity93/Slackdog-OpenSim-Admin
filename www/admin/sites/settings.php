@@ -13,7 +13,7 @@ if($_SESSION[ADMINUID] == $ADMINCHECK){
 $DbLink = new DB;
 
 if($_POST[Submitreg]=="Save"){
-$DbLink->query("UPDATE ".C_ADM_TBL." SET adress='$_POST[adressset]',region='$_POST[regtyp]',startregion='$_POST[region]'");
+$DbLink->query("UPDATE ".C_ADM_TBL." SET adress='$_POST[adressset]',region='$_POST[regtyp]',startregion='$_POST[region]',confirm18='$_POST[confirm18]'");
 }
 
 if($_POST[Submit2]=="Save"){
@@ -53,8 +53,8 @@ if($_POST[Submitnam2]=="Deactivate"){
 $DbLink->query("UPDATE ".C_ADM_TBL." SET lastnames='0'");
 }
 
-$DbLink->query("SELECT griddir,assetdir,userdir,lastnames,region,startregion,adress FROM ".C_ADM_TBL."");
-list($GRIDSDIR,$ASSETSDIR,$USERSDIR,$LASTNMS,$REGIOCHECK,$STARTREGION,$ADRESSCHECK) = $DbLink->next_record();
+$DbLink->query("SELECT griddir,assetdir,userdir,lastnames,region,startregion,adress,confirm18 FROM ".C_ADM_TBL."");
+list($GRIDSDIR,$ASSETSDIR,$USERSDIR,$LASTNMS,$REGIOCHECK,$STARTREGION,$ADRESSCHECK,$CONFIRM18) = $DbLink->next_record();
 
 ?>
 <table width="100%" height="100%" border="0" align="center">
@@ -96,7 +96,7 @@ list($GRIDSDIR,$ASSETSDIR,$USERSDIR,$LASTNMS,$REGIOCHECK,$STARTREGION,$ADRESSCHE
                   </select></td>
                 </tr>
 				<tr>
-				  <td bgcolor="#FFFFFF"><span class="Stil4">Require address for account creation?</span>
+				  <td bgcolor="#FFFFFF"><span class="Stil4">Require Real Life Information for account creation?</span>
 				  <select class="box" wide="25" name="adressset" >
                       <?
 					  echo " 
@@ -107,11 +107,24 @@ list($GRIDSDIR,$ASSETSDIR,$USERSDIR,$LASTNMS,$REGIOCHECK,$STARTREGION,$ADRESSCHE
 					  ?>
                   </select></td>
 				  <td bgcolor="#FFFFFF">
-				    <div align="center">
-				      <input type="submit" name="Submitreg" value="Save" />
-		            </div></td>
+				  </td>
 				  </tr>
-				</form>
+				<tr>
+				  <td bgcolor="#FFFFFF">Require 18+ years of age checkbox(recommended}
+				    <select name="confirm18" id="confirm18">
+				  <?
+					  echo " 
+                       <option value='0' " . ($CONFIRM18 == '0' ? 'selected' : '') . ">NO</option>
+					   <option value='1' " . ($CONFIRM18 == '1' ? 'selected' : '') . ">YES</option>
+					   ";
+
+				  ?>
+		          </select></td>
+				  <td bgcolor="#FFFFFF">  <div align="center">
+				      <input type="submit" name="Submitreg" value="Save" />
+	              </div></td>
+				  </tr>
+				    </form>
                   </table></td>
                 </tr>
                 <tr>
