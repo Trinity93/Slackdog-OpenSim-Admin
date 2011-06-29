@@ -12,9 +12,19 @@
 -->
 </style>
 <?
+class MysqlStringEscaper
+{
+    function __get($value)
+    {
+        return mysql_real_escape_string($value);
+    }
+}
+$sqlstr = new MysqlStringEscaper;
+
 if($_SESSION[ADMINUID]){
 $DbLink = new DB;
-
+if($_POST[sitename] <> '') {
+}
 //DELTE CATEGORY INCLUDE SUBSITES
 if($_GET[action] == 'confcatdelete'){
 $DbLink->query("DELETE from ".C_PAGE_TBL." WHERE code='$_GET[delcode]'");
@@ -40,7 +50,7 @@ $DbLink->query("UPDATE ".C_PAGE_TBL." SET active='1' WHERE id='$_GET[id]'");
 ## SITE UPDATE
 //Updates sites if save button was pressed
 if($_POST[id]){
-$DbLink->query("UPDATE ".C_PAGE_TBL." SET sitename='$_POST[sitename]',url='$_POST[url]',target='$_POST[target]',rank='$_POST[rank]',display='$_POST[display]' WHERE id='$_POST[id]'");
+$DbLink->query("UPDATE ".C_PAGE_TBL." SET sitename='{$sqlstr->$_POST[sitename]}',url='$_POST[url]',target='$_POST[target]',rank='$_POST[rank]',display='$_POST[display]' WHERE id='$_POST[id]'");
 }
 if($_POST[subid]){
 $DbLink->query("UPDATE ".C_PAGE_TBL." SET sitename='$_POST[subname]',url='$_POST[suburl]',target='$_POST[subtarget]',rank='$_POST[subrank]',display='$_POST[subdisplay]' WHERE id='$_POST[subid]'");
