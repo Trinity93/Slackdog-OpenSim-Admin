@@ -16,7 +16,7 @@
 //$starttime = $mtime1[0] + $mtime1[1];
 
 require_once "../../../includes/config.php";
-require_once "../../../includes/common.php";
+require_once "../../../includes/sup_common.php";
 require_once "../../../includes/lang/$language/language.php";
 if($session_save_db == 'on') {
 	require_once "code/session_mysql.php";
@@ -55,7 +55,7 @@ if(isset($login)) {
 	} else {
 		echo '
 		<html><head>';
-		require_once "code/style.php";
+		require_once "../../../includes/style.php";
 		echo '
 		<title>Login to MyHelpdesk</title>
 		</head><body>
@@ -74,7 +74,7 @@ if(isset($login)) {
 if(!isCookieSet()) {
 	echo '
 	<html><head>';
-	require_once "code/style.php";
+	require_once "../../../includes/style.php";
 	echo '
 	<title>Login to MyHelpdesk</title>
 	</head>

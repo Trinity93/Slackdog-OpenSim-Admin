@@ -213,7 +213,7 @@ if($step == 1) {
 	mysql_query($query) or die(mysql_error());
 
 	//Load first administrator account as entered during install
-	$query = "INSERT INTO ".C_ADMIN_TBL." values( '1', '$username', '".md5(md5($pwd1) . ":" )."');";
+	$query = "INSERT INTO ".C_ADMIN_TBL." values( '1', '$username', '".md5(md5($pwd1) . ":" )."','0','1');";
 	mysql_query($query) or die(mysql_error());
 	//begin support system default value loads
 	//insert admin in people table

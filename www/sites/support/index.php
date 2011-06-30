@@ -41,7 +41,7 @@ if($page == "admin") {
 echo '
 <html>
 <head>';
-require_once "code/style.php";
+require_once "../../../includes/style.php";
 echo '
 <title>MyHelpdesk - '. $helpdesk_name .'</title>
 </head>

@@ -14,9 +14,9 @@
  *
  */
 $mysql_host = "localhost";		//mysql host (localhost if mysql is running on this machine)
-$mysql_user = "";			//mysql user name
-$mysql_pwd = "";				//mysql password
-$mysql_db = "";		//mysql database name
+$mysql_user = "webdev";			//mysql user name
+$mysql_pwd = "XSnsMvUNcFanmE27";				//mysql password
+$mysql_db = "webdev";		//mysql database name
 
 /********************	directory to put files associated with the tickets	********************************/
 // it is recommended that you choose the directory below your www directory, say: $filesdir = "../../files";
@@ -92,14 +92,14 @@ $session_save_db = "off";						// on/off to save session in mysql or tmp directo
   */
  
 ##################### System #########################
-define("SYSNAME","Your Grid");
-define("SYSURL","http://localhost/");
-define("SYSMAIL","you@your.email");
+define("SYSNAME","Infinite Grid");
+define("SYSURL","http://www.infinitegrid.org/webdev/");
+define("SYSMAIL","gridadmin@infinitegrid.org");
 // adding login URI to communicate to in various places
-define("SYSURI","http://localhost:8002/"
+define("SYSURI","http://grid.infinitegrid.org:8002/");
 
-$userInventoryURI="http://localhost:8003/";
-$userAssetURI="http://localhost:8003/";
+$userInventoryURI="http://www.infinitegrid.org:8503/";
+$userAssetURI="http://www.infinitegrid.org:8503/";
 
 ############ Delete Unconfirmed accounts ################
 // e.g. 24 for 24 hours  leave empty for no timed delete
@@ -140,11 +140,11 @@ define("C_DB_TYPE","mysql");
 //Your Hostname here:
 define("C_DB_HOST","localhost");
 //Your Databasename here:
-define("C_DB_NAME","");
+define("C_DB_NAME","webdev");
 //Your Username from Database here:
-define("C_DB_USER","");
+define("C_DB_USER","webdev");
 //Your Database Password here:
-define("C_DB_PASS","");
+define("C_DB_PASS","XSnsMvUNcFanmE27");
 
 ################ Database Tables #########################
 define("C_ADMIN_TBL","admin");
@@ -168,12 +168,12 @@ define("C_OFFLINE_IM_TBL", "offline_msgs");
 define("C_STATS_REGIONS_TBL", "statistics");
 
 //OPENSIM DEFAULT TABLES (NEEDED FOR LOGINSCREEN & MONEY SYSTEM)
-define("C_ASSETS_TBL","opensim.assets");
-define("C_USERS_TBL","opensim.UserAccounts");
-define("C_AUTH_TBL","opensim.auth");
-define("C_AGENTS_TBL","opensim.GridUser");
-define("C_REGIONS_TBL","opensim.regions");
-define("C_APPEARANCE_TBL", "opensim.Avatars");
+define("C_ASSETS_TBL","devopensim.assets");
+define("C_USERS_TBL","devopensim.UserAccounts");
+define("C_AUTH_TBL","devopensim.auth");
+define("C_AGENTS_TBL","devopensim.GridUser");
+define("C_REGIONS_TBL","devopensim.regions");
+define("C_APPEARANCE_TBL", "devopensim.Avatars");
 
 //GROUPS DEFAULT TABLES (NEEDED FOR THE GROUP PARTS)
 //  The module can be configured to use it's own db, or devopensim.s.  
@@ -207,8 +207,8 @@ if (!defined('ENV_HELPER_PATH')) define('ENV_HELPER_PATH', '/path/to/helper/dire
 // Valiables for OpenSim
 
 define('OPENSIM_DB_HOST',			'localhost');
-define('OPENSIM_DB_NAME',			'opensim');
-define('OPENSIM_DB_USER',			'opensim');
+define('OPENSIM_DB_NAME',			'devopensim');
+define('OPENSIM_DB_USER',			'devopensim');
 define('OPENSIM_DB_PASS',			'****');
 
 define('CURRENCY_SCRIPT_KEY',		'');
